@@ -39,3 +39,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
           FOLDER: wwwroot
+         #Tells GitHub not to treat this as a jekyll Project (Allows files and folders starting with an underscore) 
+      - name: Add .nojekyll file
+        run: touch release/wwwroot/.nojekyll
