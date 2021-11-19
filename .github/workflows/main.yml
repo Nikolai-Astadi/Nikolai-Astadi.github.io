@@ -33,12 +33,14 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+      #Tells GitHub not to treat this as a jekyll Project (Allows files and folders starting with an underscore) 
+      - name: Add .nojekyll file
+        run: touch release/wwwroot/.nojekyll
+        
       - name: Commit wwwroot to GitHub Pages
         uses: JamesIves/github-Pages-deploy-action@3.7.1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
           FOLDER: wwwroot
-         #Tells GitHub not to treat this as a jekyll Project (Allows files and folders starting with an underscore) 
-      - name: Add .nojekyll file
-        run: touch release/wwwroot/.nojekyll
+      
